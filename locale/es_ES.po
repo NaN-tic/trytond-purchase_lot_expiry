@@ -1,0 +1,37 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:product.template:"
+msgid "Expiry margin must be greater than 0"
+msgstr "El margen de expiración debe ser mayor que 0"
+
+msgctxt "error:stock.move:"
+msgid ""
+"The lot \"%(lot)s\" of Stock Move \"%(move)s\" related to purchase "
+"\"%(purchase)s\" doesn't exceed the safety margin configured in the product."
+msgstr ""
+"El lote\"%(lot)s\" del movimiento  \"%(move)s\" relacionado con la compra "
+"\"%(purchase)s\" no supera el margen de seguridad configurado en el "
+"producto."
+
+msgctxt "field:product.template,purchase_expiry_dates_margin:"
+msgid "Check Expiry Dates on Purchases"
+msgstr "Verificar fechas de expiración en compras"
+
+msgctxt "field:product.template,purchase_expiry_margin:"
+msgid "Expiry margin on Purchase"
+msgstr "Margen de expiración"
+
+msgctxt "help:product.template,purchase_expiry_dates_margin:"
+msgid ""
+"If checked the sistem won't allow to post stock  moves related to purchases "
+"if the expriy dates doesn't exceed the margin set."
+msgstr ""
+"Si se marca no se permitirant movimientos relacionados con compras si la "
+"fecha de expiración del lote no excede el número de días definido en el "
+"margen."
+
+msgctxt "help:product.template,purchase_expiry_margin:"
+msgid "Minimum days to consider a purchased expiry lot valid on purchases"
+msgstr "Mínimo de dias para consuderar un lote comprado valido en las compras"
