@@ -165,7 +165,7 @@ Create product::
     >>> template.cost_price_method = 'fixed'
     >>> template.account_expense = expense
     >>> template.account_revenue = revenue
-    >>> template.purchase_expiry_dates_margin = True
+    >>> template.check_purchase_expiry_margin = True
     >>> template.purchase_expiry_margin = 5
     >>> template.life_time = 20
     >>> template.expiry_time = 10

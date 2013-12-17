@@ -13,14 +13,14 @@ class Template:
 
     check_purchase_expiry_margin = fields.Boolean('Check Expiry margin on '
         'Purchases', help='If checked the sistem won\'t allow to post stock '
-        ' moves related to purchases if the expriy dates doesn\'t exceed the '
-        'margin set.')
+        'moves related to purchases if its lot\'s expriy date doesn\'t exceed '
+        'the margin set.')
     purchase_expiry_margin = fields.Integer('Expiry margin on Purchases',
         help='Minimum days to consider a purchased expiry lot valid on '
         'purchases', states={
-            'invisible': Not(Eval('purchase_expiry_dates_margin', False)),
-            'required': Eval('purchase_expiry_dates_margin', False),
-            }, depends=['purchase_expiry_dates_margin'])
+            'invisible': Not(Eval('check_purchase_expiry_margin', False)),
+            'required': Eval('check_purchase_expiry_margin', False),
+            }, depends=['check_purchase_expiry_margin'])
 
     @classmethod
     def __setup__(cls):

@@ -15,7 +15,7 @@ msgstr ""
 "\"%(purchase)s\" no supera el margen de seguridad configurado en el "
 "producto."
 
-msgctxt "field:product.template,purchase_expiry_dates_margin:"
+msgctxt "field:product.template,check_purchase_expiry_margin:"
 msgid "Check Expiry Dates on Purchases"
 msgstr "Verificar fechas de expiración en compras"
 
@@ -23,7 +23,7 @@ msgctxt "field:product.template,purchase_expiry_margin:"
 msgid "Expiry margin on Purchase"
 msgstr "Margen de expiración"
 
-msgctxt "help:product.template,purchase_expiry_dates_margin:"
+msgctxt "help:product.template,check_purchase_expiry_margin:"
 msgid ""
 "If checked the sistem won't allow to post stock  moves related to purchases "
 "if the expriy dates doesn't exceed the margin set."

@@ -3,8 +3,8 @@
      copyright notices and license terms. -->
 <data>
     <xpath expr="/form/notebook/page[@id='expiry_times']" position="inside">
-        <label name="purchase_expiry_dates_margin"/>
-        <field name="purchase_expiry_dates_margin"/>
+        <label name="check_purchase_expiry_margin"/>
+        <field name="check_purchase_expiry_margin"/>
         <label name="purchase_expiry_margin"/>
         <field name="purchase_expiry_margin"/>
     </xpath>
