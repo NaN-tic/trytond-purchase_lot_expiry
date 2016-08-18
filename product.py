@@ -1,6 +1,7 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
-from trytond.model import fields
+from sql.conditionals import Coalesce
+from trytond.model import fields, Check
 from trytond.pool import PoolMeta
 from trytond.pyson import Eval, Not
 
@@ -25,8 +26,9 @@ class Template:
     @classmethod
     def __setup__(cls):
         super(Template, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
             ('purchase_expiry_margin',
-                'CHECK(COALESCE(purchase_expiry_margin,0) >= 0)',
+                Check(t, Coalesce(t.purchase_expiry_margin, 0) >= 0),
                 'Expiry margin must be greater than 0'),
             ]
