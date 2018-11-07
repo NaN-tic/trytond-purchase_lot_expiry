@@ -87,6 +87,25 @@ Create parties::
     >>> customer = Party(name='Customer')
     >>> customer.save()
 
+Create tax::
+
+    >>> tax = create_tax(Decimal('.10'))
+    >>> tax.save()
+
+Create account categories::
+
+    >>> ProductCategory = Model.get('product.category')
+    >>> account_category = ProductCategory(name="Account Category")
+    >>> account_category.accounting = True
+    >>> account_category.account_expense = expense
+    >>> account_category.account_revenue = revenue
+    >>> account_category.save()
+
+    >>> account_category_tax, = account_category.duplicate()
+    >>> account_category_tax.supplier_taxes.append(tax)
+    >>> account_category_tax.save()
+
+
 Create product::
 
     >>> ProductUom = Model.get('product.uom')
@@ -101,10 +120,8 @@ Create product::
     >>> template.purchasable = True
     >>> template.salable = True
     >>> template.list_price = Decimal('10')
-    >>> template.cost_price = Decimal('5')
     >>> template.cost_price_method = 'fixed'
-    >>> template.account_expense = expense
-    >>> template.account_revenue = revenue
+    >>> template.account_category = account_category_tax
     >>> template.check_purchase_expiry_margin = True
     >>> template.purchase_expiry_margin = 5
     >>> template.life_time = 20
@@ -112,6 +129,7 @@ Create product::
     >>> template.alert_time = 5
     >>> template.save()
     >>> product.template = template
+    >>> product.cost_price = Decimal('5')
     >>> product.save()
 
 Create lots::
@@ -150,7 +168,7 @@ Purchase a product::
     >>> purchase.click('confirm')
     >>> purchase.click('process')
     >>> purchase.state
-    u'processing'
+    'processing'
     >>> purchase.reload()
     >>> len(purchase.moves), len(purchase.shipment_returns), len(purchase.invoices)
     (1, 0, 1)
@@ -176,7 +194,7 @@ Validate Shipments::
     ...     ShipmentIn.receive([shipment.id], config.context)
     ... except UserError as e:
     ...     e.message
-    u'The lot "001" of Stock Move "2.0u product" related to purchase "1" doesn\'t exceed the safety margin configured in the product.'
+    'The lot "001" of Stock Move "2.0u product" related to purchase "1" doesn\'t exceed the safety margin configured in the product.'
     >>> for move in shipment.moves:
     ...     move.lot= valid_lot
     ...     move.save()

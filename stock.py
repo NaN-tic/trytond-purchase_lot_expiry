@@ -4,10 +4,9 @@ from datetime import date, timedelta
 from trytond.pool import Pool, PoolMeta
 
 __all__ = ['Move']
-__metaclass__ = PoolMeta
 
 
-class Move:
+class Move(metaclass=PoolMeta):
     __name__ = 'stock.move'
 
     @classmethod

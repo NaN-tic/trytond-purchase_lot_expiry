@@ -9,7 +9,7 @@ __all__ = ['Template']
 __metaclass__ = PoolMeta
 
 
-class Template:
+class Template(metaclass=PoolMeta):
     __name__ = 'product.template'
 
     check_purchase_expiry_margin = fields.Boolean('Check Expiry margin on '
