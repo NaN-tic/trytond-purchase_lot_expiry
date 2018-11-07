@@ -30,14 +30,13 @@ class Move:
         PurchaseLine = pool.get('purchase.line')
         if (self.from_location.type != 'supplier' or not self.lot or
                 not self.origin or not isinstance(self.origin, PurchaseLine) or
-                not self.lot.expiry_date or
-                not self.product.template.check_purchase_expiry_margin or
-                self.to_location.allow_expired):
+                not self.lot.expiration_date or
+                not self.product.template.check_purchase_expiry_margin):
             return
 
         delta = timedelta(days=self.product.template.purchase_expiry_margin)
         max_use_date = date.today() + delta
-        if self.lot.expiry_date > max_use_date:
+        if self.lot.expiration_date > max_use_date:
             return
 
         self.raise_user_error('expired_lot_margin', {

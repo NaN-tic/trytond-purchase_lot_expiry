@@ -2,7 +2,7 @@
 <!-- The COPYRIGHT file at the top level of this repository contains the full
      copyright notices and license terms. -->
 <data>
-    <xpath expr="/form/notebook/page[@id='expiry_times']" position="inside">
+    <xpath expr="/form/notebook/page[@name='lot_required']" position="inside">
         <label name="check_purchase_expiry_margin"/>
         <field name="check_purchase_expiry_margin"/>
         <label name="purchase_expiry_margin"/>

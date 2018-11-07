@@ -9,26 +9,19 @@ Imports::
     >>> from decimal import Decimal
     >>> from operator import attrgetter
     >>> from proteus import config, Model, Wizard
+    >>> from trytond.tests.tools import activate_modules
     >>> from trytond.modules.company.tests.tools import create_company, \
     ...     get_company
     >>> from trytond.modules.account.tests.tools import create_fiscalyear, \
-    ...     create_chart, get_accounts, create_tax, set_tax_code
+    ...     create_chart, get_accounts, create_tax
     >>> from trytond.modules.account_invoice.tests.tools import \
     ...     set_fiscalyear_invoice_sequences, create_payment_term
     >>> from trytond.exceptions import UserError
     >>> today = datetime.date.today()
 
-Create database::
+    Install stock Module::
 
-    >>> config = config.set_trytond()
-    >>> config.pool.test = True
-
-Install purchase_lot_expiry::
-
-    >>> Module = Model.get('ir.module')
-    >>> purchase_module, = Module.find([('name', '=', 'purchase_lot_expiry')])
-    >>> Module.install([purchase_module.id], config.context)
-    >>> Wizard('ir.module.install_upgrade').execute('upgrade')
+        >>> config = activate_modules('purchase_lot_expiry')
 
 Create company::
 
@@ -115,7 +108,7 @@ Create product::
     >>> template.check_purchase_expiry_margin = True
     >>> template.purchase_expiry_margin = 5
     >>> template.life_time = 20
-    >>> template.expiry_time = 10
+    >>> template.expiration_time = 10
     >>> template.alert_time = 5
     >>> template.save()
     >>> product.template = template
@@ -127,7 +120,7 @@ Create lots::
     >>> invalid_lot = Lot()
     >>> invalid_lot.number = '001'
     >>> invalid_lot.product = product
-    >>> invalid_lot.expiry_date = today + relativedelta(days=4)
+    >>> invalid_lot.expiration_date = today + relativedelta(days=4)
     >>> invalid_lot.save()
     >>> valid_lot = Lot()
     >>> valid_lot.number = '002'
@@ -192,4 +185,3 @@ Validate Shipments::
     >>> purchase.reload()
     >>> len(purchase.shipments), len(purchase.shipment_returns)
     (1, 0)
-
