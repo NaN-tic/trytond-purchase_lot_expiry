@@ -1,34 +1,33 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:product.template:"
 msgid "Expiry margin must be greater than 0"
-msgstr "El marge d'expiració ha de ser superior a 0."
+msgstr ""
 
 msgctxt "error:stock.move:"
 msgid ""
 "The lot \"%(lot)s\" of Stock Move \"%(move)s\" related to purchase "
 "\"%(purchase)s\" doesn't exceed the safety margin configured in the product."
 msgstr ""
-"El lot\"%(lot)s\" del moviment  \"%(move)s\" relacionat amb la compra "
-"\"%(purchase)s\" no supera el marge de seguretat configura al producte."
 
 msgctxt "field:product.template,check_purchase_expiry_margin:"
 msgid "Check Expiry margin on Purchases"
-msgstr "Comprova marge caducitat en compres"
+msgstr "Verificar dates de caducitat en compres"
 
 msgctxt "field:product.template,purchase_expiry_margin:"
 msgid "Expiry margin on Purchases"
-msgstr "Marge caducitat en compres."
+msgstr "Marge de caducitat"
 
 msgctxt "help:product.template,check_purchase_expiry_margin:"
 msgid ""
 "If checked the sistem won't allow to post stock moves related to purchases "
 "if its lot's expriy date doesn't exceed the margin set."
-msgstr "Si marca aquesta opció el sistema no permetrà realitzar moviments "
-"associats a compres si la data de caducitat del seu lot és anterior al marge definit."
+msgstr ""
+"Si es marca no es permetran moviments relacionats amb compres si la data de "
+"caducitat del lot no excedeix del número de dies definit en el marge."
 
 msgctxt "help:product.template,purchase_expiry_margin:"
 msgid "Minimum days to consider a purchased expiry lot valid on purchases"
-msgstr "Nombre mínim de dies per considerar un lot vàlid a les compres. "
+msgstr "Mínim de dies per considerar un lot comprat vàlid en compres."
