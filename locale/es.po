@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -16,17 +16,17 @@ msgstr ""
 "producto."
 
 msgctxt "field:product.template,check_purchase_expiry_margin:"
-msgid "Check Expiry Dates on Purchases"
+msgid "Check Expiry margin on Purchases"
 msgstr "Verificar fechas de expiración en compras"
 
 msgctxt "field:product.template,purchase_expiry_margin:"
-msgid "Expiry margin on Purchase"
+msgid "Expiry margin on Purchases"
 msgstr "Margen de expiración"
 
 msgctxt "help:product.template,check_purchase_expiry_margin:"
 msgid ""
-"If checked the sistem won't allow to post stock  moves related to purchases "
-"if the expriy dates doesn't exceed the margin set."
+"If checked the sistem won't allow to post stock moves related to purchases "
+"if its lot's expriy date doesn't exceed the margin set."
 msgstr ""
 "Si se marca no se permitirant movimientos relacionados con compras si la "
 "fecha de expiración del lote no excede el número de días definido en el "
@@ -34,4 +34,4 @@ msgstr ""
 
 msgctxt "help:product.template,purchase_expiry_margin:"
 msgid "Minimum days to consider a purchased expiry lot valid on purchases"
-msgstr "Mínimo de dias para consuderar un lote comprado valido en las compras"
+msgstr "Mínimo de dias para considerar un lote comprado valido en las compras"
