@@ -19,47 +19,15 @@ Imports::
     >>> from trytond.exceptions import UserError
     >>> today = datetime.date.today()
 
-    Install stock Module::
+Install stock Module::
 
-        >>> config = activate_modules('purchase_lot_expiry')
+    >>> config = activate_modules('purchase_lot_expiry')
 
 Create company::
 
     >>> _ = create_company()
     >>> company = get_company()
     >>> party = company.party
-
-Create purchase user::
-
-    >>> User = Model.get('res.user')
-    >>> Group = Model.get('res.group')
-    >>> purchase_user = User()
-    >>> purchase_user.name = 'Purchase'
-    >>> purchase_user.login = 'purchase'
-    >>> purchase_user.main_company = company
-    >>> purchase_group, = Group.find([('name', '=', 'Purchase')])
-    >>> purchase_user.groups.append(purchase_group)
-    >>> purchase_user.save()
-
-Create stock user::
-
-    >>> stock_user = User()
-    >>> stock_user.name = 'Stock'
-    >>> stock_user.login = 'stock'
-    >>> stock_user.main_company = company
-    >>> stock_group, = Group.find([('name', '=', 'Stock')])
-    >>> stock_user.groups.append(stock_group)
-    >>> stock_user.save()
-
-Create account user::
-
-    >>> account_user = User()
-    >>> account_user.name = 'Account'
-    >>> account_user.login = 'account'
-    >>> account_user.main_company = company
-    >>> account_group, = Group.find([('name', '=', 'Account')])
-    >>> account_user.groups.append(account_group)
-    >>> account_user.save()
 
 Create fiscal year::
 
@@ -104,7 +72,6 @@ Create account categories::
     >>> account_category_tax, = account_category.duplicate()
     >>> account_category_tax.supplier_taxes.append(tax)
     >>> account_category_tax.save()
-
 
 Create product::
 
@@ -152,7 +119,6 @@ Create payment term::
 
 Purchase a product::
 
-    >>> config.user = purchase_user.id
     >>> Purchase = Model.get('purchase.purchase')
     >>> PurchaseLine = Model.get('purchase.line')
     >>> purchase = Purchase()
@@ -178,7 +144,6 @@ Purchase a product::
 
 Validate Shipments::
 
-    >>> config.user = stock_user.id
     >>> Move = Model.get('stock.move')
     >>> ShipmentIn = Model.get('stock.shipment.in')
     >>> shipment = ShipmentIn()

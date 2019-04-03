@@ -2,21 +2,14 @@
 # copyright notices and license terms.
 from datetime import date, timedelta
 from trytond.pool import Pool, PoolMeta
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['Move']
 
 
 class Move(metaclass=PoolMeta):
     __name__ = 'stock.move'
-
-    @classmethod
-    def __setup__(cls):
-        super(Move, cls).__setup__()
-        cls._error_messages.update({
-            'expired_lot_margin': 'The lot "%(lot)s" of Stock Move "%(move)s"'
-                ' related to purchase "%(purchase)s" doesn\'t exceed'
-                ' the safety margin configured in the product.',
-            })
 
     @classmethod
     def do(cls, moves):
@@ -38,8 +31,8 @@ class Move(metaclass=PoolMeta):
         if self.lot.expiration_date > max_use_date:
             return
 
-        self.raise_user_error('expired_lot_margin', {
-                'lot': self.lot.rec_name,
-                'move': self.rec_name,
-                'purchase': self.origin.purchase.rec_name,
-                })
+        raise UserError(gettext('purchase_lot_expiry.msg_expired_lot_margin',
+            lot=self.lot.rec_name,
+            move=self.rec_name,
+            purchase=self.origin.purchase.rec_name,
+            ))
