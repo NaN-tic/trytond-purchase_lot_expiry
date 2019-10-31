@@ -85,15 +85,12 @@ Create product::
     >>> template.default_uom = unit
     >>> template.type = 'goods'
     >>> template.purchasable = True
-    >>> template.salable = True
     >>> template.list_price = Decimal('10')
     >>> template.cost_price_method = 'fixed'
     >>> template.account_category = account_category_tax
     >>> template.check_purchase_expiry_margin = True
     >>> template.purchase_expiry_margin = 5
-    >>> template.life_time = 20
     >>> template.expiration_time = 10
-    >>> template.alert_time = 5
     >>> template.save()
     >>> product.template = template
     >>> product.cost_price = Decimal('5')
