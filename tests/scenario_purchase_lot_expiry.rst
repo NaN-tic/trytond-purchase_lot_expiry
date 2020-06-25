@@ -156,7 +156,7 @@ Validate Shipments::
     ...     ShipmentIn.receive([shipment.id], config.context)
     ... except UserError as e:
     ...     e.message
-    'The lot "001" of Stock Move "2.0u product" related to purchase "1" doesn\'t exceed the safety margin configured in the product.'
+    'The lot "001" of Stock Move "2u product" related to purchase "1" doesn\'t exceed the safety margin configured in the product.'
     >>> for move in shipment.moves:
     ...     move.lot= valid_lot
     ...     move.save()
