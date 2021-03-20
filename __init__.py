@@ -2,12 +2,12 @@
 #copyright notices and license terms.
 
 from trytond.pool import Pool
-from .product import *
-from .stock import *
+from . import product
+from . import stock
 
 
 def register():
     Pool.register(
-        Template,
-        Move,
+        product.Template,
+        stock.Move,
         module='purchase_lot_expiry', type_='model')
