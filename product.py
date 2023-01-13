@@ -32,3 +32,7 @@ class Template(metaclass=PoolMeta):
                 Check(t, Coalesce(t.purchase_expiry_margin, 0) >= 0),
                 'Expiry margin must be greater than 0'),
             ]
+
+
+class Product(metaclass=PoolMeta):
+    __name__ = 'product.product'

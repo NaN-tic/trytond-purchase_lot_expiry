@@ -9,5 +9,6 @@ from . import stock
 def register():
     Pool.register(
         product.Template,
+        product.Product,
         stock.Move,
         module='purchase_lot_expiry', type_='model')
